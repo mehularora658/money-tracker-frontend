@@ -300,3 +300,8 @@ form .AddNewTransaction{
     
   }
 }
+@media only screen and (max-width: 947px){
+  .MainContent{
+    grid-template-columns: 1fr;
+  }
+}
