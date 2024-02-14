@@ -39,7 +39,7 @@ function DonutChart({ Chartlabels, Chartdata, ChartColor }) {
       // Chartdata=[]
       // ChartColor=[]
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   return (
     <div className='DonutChart'>
