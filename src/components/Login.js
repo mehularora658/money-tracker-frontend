@@ -15,7 +15,7 @@ const Login = () => {
     })
     
     const loginFunc = async(username,password) =>{
-        const url = process.env.REACT_APP_API_URL + "/login";
+        const url = `${process.env.REACT_APP_API_URL}/login`;
         try{
             fetch(url,{
                 method:'post',
