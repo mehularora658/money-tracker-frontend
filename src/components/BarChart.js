@@ -67,7 +67,7 @@ const BarChart = ({  IncomeData , ExpenseData}) => {
         <>
            
             <div className='BarChart'>
-                <canvas ref={BarChartRef} style={{ width: '400px', height: '200px', padding: '10px' }} />
+                <canvas ref={BarChartRef} style={{  height: '200px', padding: '10px' }} />
             </div>
         </>
     )
