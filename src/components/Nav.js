@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Modal from './Modal.js';
 
@@ -10,6 +10,8 @@ const Nav = () => {
     const [datetime, setDatetime] = useState('');
     const [description, setDescription] = useState('');
     const [selectedValue, setSelectedValue] = useState('');
+
+    
 
     const handleDropdownChange = (event) => {
         const value = event.target.value;
@@ -40,18 +42,18 @@ const Nav = () => {
         return formattedDate;
     }
 
-    const addNewTransaction = async (name, description, datetime,selectedValue) => {
+    const addNewTransaction = async (name, description, datetime, selectedValue) => {
 
         const url = process.env.REACT_APP_API_URL + "/transaction";
         const price = name.split(' ')[0]
         console.log(name, description, datetime, selectedValue);
         let transactionType = ''
-        if(price>0){
+        if (price > 0) {
             transactionType = 'Income'
-        }else{
+        } else {
             transactionType = 'Expense'
         }
-        
+
         fetch(url, {
             method: 'post',
             headers: {
@@ -64,9 +66,9 @@ const Nav = () => {
                     name: name.substring(price.length + 1),
                     description: description,
                     datetime: datetime,
-                    label:selectedValue,
-                    userId:`${localStorage.getItem('userId')}`,
-                    transactionType:transactionType
+                    label: selectedValue,
+                    userId: `${localStorage.getItem('userId')}`,
+                    transactionType: transactionType
                 }),
         })
             .then(response => response.json())
@@ -76,7 +78,7 @@ const Nav = () => {
                 setDatetime('')
                 setSelectedValue('')
                 console.log('result', json);
-                
+
 
             })
             .catch(error => {
@@ -124,54 +126,56 @@ const Nav = () => {
             </div>
             {
                 isModalOpen ?
-                    <Modal isOpen={isModalOpen} onClose={closeModal}>
-                        <h1 className='AddRecordModalHeading'>Add Record</h1>
-                        <form onSubmit={(e) => {
-                            e.preventDefault();
-                            addNewTransaction(name, description, datetime,selectedValue);
+                    
+                        <Modal isOpen={isModalOpen} onClose={closeModal}>
+                            <h1 className='AddRecordModalHeading'>Add Record</h1>
+                            <form onSubmit={(e) => {
+                                e.preventDefault();
+                                addNewTransaction(name, description, datetime, selectedValue);
 
-                        }}>
+                            }}>
+                                {console.log('modal open , mobile view not')}
 
-                            <div className='basic'>
-                                <input type='text' required value={name} onChange={(e) => setName(e.target.value)} placeholder='+200$ New Samsung TV' />
-                                <input type='datetime-local' required color='white' value={datetime} onChange={(e) => setDatetime(e.target.value)} />
-                            </div>
-                            <div className='description'>
-                                <div className='LabelForTransaction'>
-                                    <label for="dropdown">Label : </label>
-                                    <select id="dropdown" required onChange={handleDropdownChange}>
-                                        <option  >Select a Option</option>
-                                        <option value="Food & Drinks">Food & Drinks</option>
-                                        <option value="Shopping">Shopping</option>
-                                        <option value="Housing">Housing</option>
-                                        <option value="Transportation">Transportation</option>
-                                        <option value="Vehicle">Vehicle</option>
-                                        <option value="Life & Entertainment">Life & Entertainment</option>
-                                        <option value="Commmunication & PC">Commmunication & PC</option>
-                                        <option value="Financial Expenses">Financial Expenses</option>
-                                        <option value="Investments">Investments</option>
-                                        <option value="Income">Income</option>
-                                        <option value="Others">Others</option>
-                                        <option value="Unknown">Unknown</option>
-
-                                    </select>
+                                <div className='basic'>
+                                    <input type='text' required value={name} onChange={(e) => setName(e.target.value)} placeholder='+200$ New Samsung TV' />
+                                    <input type='datetime-local' required color='white' value={datetime} onChange={(e) => setDatetime(e.target.value)} />
                                 </div>
-                                <div className='Display_datetime'>
-                                    {
-                                        
-                                        !datetime?
-                                        <input value={'Date and Time'} disabled />
-                                        :
-                                        <input value={formatDate(datetime)} disabled />
+                                <div className='description'>
+                                    <div className='LabelForTransaction'>
+                                        <label for="dropdown">Label : </label>
+                                        <select id="dropdown" required onChange={handleDropdownChange}>
+                                            <option  >Select a Option</option>
+                                            <option value="Food & Drinks">Food & Drinks</option>
+                                            <option value="Shopping">Shopping</option>
+                                            <option value="Housing">Housing</option>
+                                            <option value="Transportation">Transportation</option>
+                                            <option value="Vehicle">Vehicle</option>
+                                            <option value="Life & Entertainment">Life & Entertainment</option>
+                                            <option value="Commmunication & PC">Commmunication & PC</option>
+                                            <option value="Financial Expenses">Financial Expenses</option>
+                                            <option value="Investments">Investments</option>
+                                            <option value="Income">Income</option>
+                                            <option value="Others">Others</option>
+                                            <option value="Unknown">Unknown</option>
 
-                                    }
+                                        </select>
+                                    </div>
+                                    <div className='Display_datetime'>
+                                        {
+
+                                            !datetime ?
+                                                <input value={'Date and Time'} disabled />
+                                                :
+                                                <input value={formatDate(datetime)} disabled />
+
+                                        }
+                                    </div>
+                                    <input type='text' value={description} required onChange={(e) => setDescription(e.target.value)} placeholder='description' />
                                 </div>
-                                <input type='text' value={description} required onChange={(e) => setDescription(e.target.value)} placeholder='description' />
-                            </div>
-                            <button className='AddNewTransaction' type='submit' >Add New Transaction</button>
-                        </form>
-                    </Modal> :
-                   null
+                                <button className='AddNewTransaction' type='submit' >Add New Transaction</button>
+                            </form>
+                        </Modal> :
+                    null
             }
 
         </>

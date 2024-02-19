@@ -73,18 +73,21 @@ function App() {
   }
 
   function formatDate(inputDate) {
-    const date = new Date(inputDate);
+    // 1. Parse the input date string using Date.parse()
+    const date = new Date(Date.parse(inputDate));
 
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear();
+    // 2. Format the date and time using Intl.DateTimeFormat with options
+    const options = {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true // Use 12-hour format with AM/PM
+    };
+    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
 
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const period = (date.getHours() < 12) ? 'AM' : 'PM';
-
-    const formattedDate = `${day}-${month}-${year} , ${hours % 12 || 12}:${minutes} ${period}`;
-
+    // 3. Return the formatted date string
     return formattedDate;
   }
 
@@ -118,7 +121,7 @@ function App() {
         data: data,
         colors: color
       });
-      
+
 
       setRenderChart(true)
     })

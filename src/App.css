@@ -136,17 +136,17 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 .SeeAllBtn{
   bottom: 25px;
-  position: absolute;
   border-radius: 10px;
   border: none;
   color: black;
+  padding: 7px 10px;
+  margin-top: 7px;
   background-color: white;
 }
 .transactions{
   border: 1px solid white;
   padding: 25px;
   height: 411px;
-  position: relative;
   border-radius: 15px;
 }
 .ThisMonthExpenseIncome{
