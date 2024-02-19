@@ -188,7 +188,7 @@ form input{
   border: 2px solid #30313d;
   padding: 2px 5px;
   font-size:20px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 form input[type='datetime-local']{
   color:#777;
@@ -198,11 +198,23 @@ form input[type='datetime-local']{
 .LabelForTransaction label{
   color:black
 }
+.selectDropdown{
+  font-size: 17px;
+  margin-left: 5px;
+  width: 80%;
+  margin-top: 5px;
+}
 .LabelForTransaction{
   margin-bottom: 10px;
 }
+.width100{
+  width: 100%;
+}
 .AddRecordModalHeading{
   color:black
+}
+.dateAndTimeIcon{
+  margin-right: 5px;
 }
 .Display_datetime{
   margin-bottom: 5px;

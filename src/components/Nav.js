@@ -137,13 +137,13 @@ const Nav = () => {
                                 {console.log('modal open , mobile view not')}
 
                                 <div className='basic'>
-                                    <input type='text' required value={name} onChange={(e) => setName(e.target.value)} placeholder='+200$ New Samsung TV' />
-                                    <input type='datetime-local' required color='white' value={datetime} onChange={(e) => setDatetime(e.target.value)} />
+                                <input type='text' required value={name} onChange={(e) => setName(e.target.value)} placeholder='+200$ New Samsung TV' className='width100'/>
+                                    
                                 </div>
                                 <div className='description'>
                                     <div className='LabelForTransaction'>
                                         <label for="dropdown">Label : </label>
-                                        <select id="dropdown" required onChange={handleDropdownChange}>
+                                        <select id="dropdown" className='selectDropdown' required onChange={handleDropdownChange}>
                                             <option  >Select a Option</option>
                                             <option value="Food & Drinks">Food & Drinks</option>
                                             <option value="Shopping">Shopping</option>
@@ -161,6 +161,7 @@ const Nav = () => {
                                         </select>
                                     </div>
                                     <div className='Display_datetime'>
+                                    <input type='datetime-local' required color='white' value={datetime} onChange={(e) => setDatetime(e.target.value)} className='dateAndTimeIcon'/>
                                         {
 
                                             !datetime ?
@@ -170,7 +171,7 @@ const Nav = () => {
 
                                         }
                                     </div>
-                                    <input type='text' value={description} required onChange={(e) => setDescription(e.target.value)} placeholder='description' />
+                                <input type='text' value={description} required onChange={(e) => setDescription(e.target.value)} placeholder='description' className='width100' />
                                 </div>
                                 <button className='AddNewTransaction' type='submit' >Add New Transaction</button>
                             </form>
