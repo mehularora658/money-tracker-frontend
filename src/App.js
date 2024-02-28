@@ -179,59 +179,59 @@ function App() {
             <h1>Records <img alt='' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAq0lEQVR4nO2UvQ3CMBCF3ZCsgMQkljJP6mwRRoAOJZtQwCKgzED1ISNHihwn5x9Kf9I1tnXPz/I9pQo5AB3hvIEzUO01bE05awNx9FvNNfCxpRPcNrMT3+YReC1uMQGnBJEf7uIBuHusPoH6HwLXnfe8ZQtEHRAoAiLlibwI3/yS/U3ZHtTHalBT54DQqLGRa2gSRLQYliZqiWOU4t4VqKzI7CSELtZtQS35Ao2HRjghsRAxAAAAAElFTkSuQmCC"
               onClick={RefreshTransactions}
             ></img></h1>
-            {transactions && transactions[0] ?
+            {transactions && transactions[transactions.length - 1] ?
               <div className='transaction'>
                 <div className='left'>
-                  <div className='name'>{transactions[0].name}</div>
-                  <div className='description'>{transactions[0].description}</div>
+                  <div className='name'>{transactions[transactions.length - 1].name}</div>
+                  <div className='description'>{transactions[transactions.length - 1].description}</div>
                   <div className='label'>{"Label - "}</div>
                 </div>
                 <div className='right'>
-                  <div className={'price ' + (transactions[0].price > 0 ? "green" : " red")} >{transactions[0].price}</div>
-                  <div className='datetime'>{formatDate(transactions[0].datetime)}</div>
-                  <div className='labelValue'>{transactions[0].label}</div>
+                  <div className={'price ' + (transactions[transactions.length - 1].price > 0 ? "green" : " red")} >{transactions[transactions.length - 1].price}</div>
+                  <div className='datetime'>{formatDate(transactions[transactions.length - 1].datetime)}</div>
+                  <div className='labelValue'>{transactions[transactions.length - 1].label}</div>
                 </div>
               </div>
               : null}
-            {transactions && transactions[1] ?
+            {transactions && transactions[transactions.length - 2] ?
               <div className='transaction'>
                 <div className='left'>
-                  <div className='name'>{transactions[1].name}</div>
-                  <div className='description'>{transactions[1].description}</div>
+                  <div className='name'>{transactions[transactions.length - 2].name}</div>
+                  <div className='description'>{transactions[transactions.length - 2].description}</div>
                   <div className='label'>{"Label - "}</div>
                 </div>
                 <div className='right'>
-                  <div className={'price ' + (transactions[1].price > 0 ? "green" : " red")} >{transactions[1].price}</div>
-                  <div className='datetime'>{formatDate(transactions[1].datetime)}</div>
-                  <div className='labelValue'>{transactions[1].label}</div>
+                  <div className={'price ' + (transactions[transactions.length - 2].price > 0 ? "green" : " red")} >{transactions[transactions.length - 2].price}</div>
+                  <div className='datetime'>{formatDate(transactions[transactions.length - 2].datetime)}</div>
+                  <div className='labelValue'>{transactions[transactions.length - 2].label}</div>
                 </div>
               </div>
               : null}
-            {transactions && transactions[2] ?
+            {transactions && transactions[transactions.length - 3] ?
               <div className='transaction'>
                 <div className='left'>
-                  <div className='name'>{transactions[2].name}</div>
-                  <div className='description'>{transactions[2].description}</div>
+                  <div className='name'>{transactions[transactions.length - 3].name}</div>
+                  <div className='description'>{transactions[transactions.length - 3].description}</div>
                   <div className='label'>{"Label - "}</div>
                 </div>
                 <div className='right'>
-                  <div className={'price ' + (transactions[2].price > 0 ? "green" : " red")} >{transactions[2].price}</div>
-                  <div className='datetime'>{formatDate(transactions[2].datetime)}</div>
-                  <div className='labelValue'>{transactions[2].label}</div>
+                  <div className={'price ' + (transactions[transactions.length - 3].price > 0 ? "green" : " red")} >{transactions[transactions.length - 3].price}</div>
+                  <div className='datetime'>{formatDate(transactions[transactions.length - 3].datetime)}</div>
+                  <div className='labelValue'>{transactions[transactions.length - 3].label}</div>
                 </div>
               </div>
               : null}
-            {transactions && transactions[3] ?
+            {transactions && transactions[transactions.length - 4] ?
               <div className='transaction'>
                 <div className='left'>
-                  <div className='name'>{transactions[3].name}</div>
-                  <div className='description'>{transactions[3].description}</div>
+                  <div className='name'>{transactions[transactions.length - 4].name}</div>
+                  <div className='description'>{transactions[transactions.length - 4].description}</div>
                   <div className='label'>{"Label - "}</div>
                 </div>
                 <div className='right'>
-                  <div className={'price ' + (transactions[3].price > 0 ? "green" : " red")} >{transactions[3].price}</div>
-                  <div className='datetime'>{formatDate(transactions[3].datetime)}</div>
-                  <div className='labelValue'>{transactions[3].label}</div>
+                  <div className={'price ' + (transactions[transactions.length - 4].price > 0 ? "green" : " red")} >{transactions[transactions.length - 4].price}</div>
+                  <div className='datetime'>{formatDate(transactions[transactions.length - 4].datetime)}</div>
+                  <div className='labelValue'>{transactions[transactions.length - 4].label}</div>
                 </div>
               </div>
               : null}
