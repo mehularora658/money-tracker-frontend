@@ -11,7 +11,7 @@ const Nav = () => {
     const [description, setDescription] = useState('');
     const [selectedValue, setSelectedValue] = useState('');
 
-    
+
 
     const handleDropdownChange = (event) => {
         const value = event.target.value;
@@ -104,7 +104,7 @@ const Nav = () => {
                 {token ?
                     <div className='linksWrapper'>
                         <div className='NavLink Record_btn'>
-                            <button onClick={openModal}>+ Record</button>
+                            <a onClick={openModal}>+ Record</a>
                         </div>
                         <div className='NavLink'>
                             <Link onClick={() => {
@@ -126,56 +126,58 @@ const Nav = () => {
             </div>
             {
                 isModalOpen ?
-                    
-                        <Modal isOpen={isModalOpen} onClose={closeModal}>
-                            <h1 className='AddRecordModalHeading'>Add Record</h1>
-                            <form onSubmit={(e) => {
-                                e.preventDefault();
-                                addNewTransaction(name, description, datetime, selectedValue);
 
-                            }}>
-                                {console.log('modal open , mobile view not')}
+                    <Modal isOpen={isModalOpen} onClose={closeModal}>
+                        <h1 className='AddRecordModalHeading'>Add Record</h1>
+                        <form onSubmit={(e) => {
+                            e.preventDefault();
+                            addNewTransaction(name, description, datetime, selectedValue);
 
-                                <div className='basic'>
-                                <input type='text' required value={name} onChange={(e) => setName(e.target.value)} placeholder='+200$ New Samsung TV' className='width100'/>
-                                    
+                        }}>
+                            {console.log('modal open , mobile view not')}
+
+                            <div className='basic'>
+                                <input type='text' required value={name} onChange={(e) => setName(e.target.value)} placeholder='+200$ New Samsung TV' className='width100' />
+
+                            </div>
+                            <div className='description'>
+                                <div className='LabelForTransaction'>
+                                    <label for="dropdown">Label : </label>
+                                    <select id="dropdown" className='selectDropdown' required onChange={handleDropdownChange}>
+                                        <option  >Select a Option</option>
+                                        <option value="Food & Drinks">Food & Drinks</option>
+                                        <option value="Shopping">Shopping</option>
+                                        <option value="Housing">Housing</option>
+                                        <option value="Transportation">Transportation</option>
+                                        <option value="Vehicle">Vehicle</option>
+                                        <option value="Life & Entertainment">Life & Entertainment</option>
+                                        <option value="Commmunication & PC">Commmunication & PC</option>
+                                        <option value="Financial Expenses">Financial Expenses</option>
+                                        <option value="Investments">Investments</option>
+                                        <option value="Income">Income</option>
+                                        <option value="Others">Others</option>
+                                        <option value="Unknown">Unknown</option>
+
+                                    </select>
                                 </div>
-                                <div className='description'>
-                                    <div className='LabelForTransaction'>
-                                        <label for="dropdown">Label : </label>
-                                        <select id="dropdown" className='selectDropdown' required onChange={handleDropdownChange}>
-                                            <option  >Select a Option</option>
-                                            <option value="Food & Drinks">Food & Drinks</option>
-                                            <option value="Shopping">Shopping</option>
-                                            <option value="Housing">Housing</option>
-                                            <option value="Transportation">Transportation</option>
-                                            <option value="Vehicle">Vehicle</option>
-                                            <option value="Life & Entertainment">Life & Entertainment</option>
-                                            <option value="Commmunication & PC">Commmunication & PC</option>
-                                            <option value="Financial Expenses">Financial Expenses</option>
-                                            <option value="Investments">Investments</option>
-                                            <option value="Income">Income</option>
-                                            <option value="Others">Others</option>
-                                            <option value="Unknown">Unknown</option>
+                                <div className='Display_datetime'>
+                                    <input type='datetime-local' required color='white' value={datetime} onChange={(e) => setDatetime(e.target.value)} className='dateAndTimeIcon' />
+                                    {
 
-                                        </select>
-                                    </div>
-                                    <div className='Display_datetime'>
-                                    <input type='datetime-local' required color='white' value={datetime} onChange={(e) => setDatetime(e.target.value)} className='dateAndTimeIcon'/>
-                                        {
+                                        !datetime ?
+                                            <input value={'Date and Time'} disabled />
+                                            :
+                                            <input value={formatDate(datetime)} disabled />
 
-                                            !datetime ?
-                                                <input value={'Date and Time'} disabled />
-                                                :
-                                                <input value={formatDate(datetime)} disabled />
-
-                                        }
-                                    </div>
+                                    }
+                                </div>
                                 <input type='text' value={description} required onChange={(e) => setDescription(e.target.value)} placeholder='description' className='width100' />
-                                </div>
-                                <button className='AddNewTransaction' type='submit' >Add New Transaction</button>
-                            </form>
-                        </Modal> :
+                            </div>
+                            <div className='addRecordButtonWrapper'>
+                                <button className='AddNewTransaction' type='submit' ><b>Add</b></button>
+                            </div>
+                        </form>
+                    </Modal> :
                     null
             }
 
