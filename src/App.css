@@ -156,7 +156,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 }
 .donutChart{
   height: 340px !important;
-  width: 100% !important;
+  /* width: 100% !important; */
 }
 .ThisMonthExpenseIncome{
   border: 1px solid white;
