@@ -104,7 +104,7 @@ const Nav = () => {
                 {token ?
                     <div className='linksWrapper'>
                         <div className='NavLink Record_btn'>
-                            <a onClick={openModal}>+ Record</a>
+                            <button  onClick={openModal}>+ Record</button>
                         </div>
                         <div className='NavLink'>
                             <Link onClick={() => {
