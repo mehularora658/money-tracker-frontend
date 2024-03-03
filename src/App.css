@@ -144,11 +144,18 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   margin-top: 7px;
   background-color: white;
 }
+.DonutChart{
+  display: flex;
+  justify-content: center;
+}
 .transactions{
   border: 1px solid white;
   padding: 25px;
   height: 411px;
   border-radius: 15px;
+}
+.donutChart{
+  height: 340px !important;
 }
 .ThisMonthExpenseIncome{
   border: 1px solid white;
@@ -161,6 +168,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
 .LabelStructureDivision{
   border: 1px solid white;
   border-radius: 15px;
+  height: 411px ;
 }
 main{
   max-width:90vw;
@@ -248,7 +256,7 @@ form .AddNewTransaction{
   text-align: center;
   margin-bottom: 0;
 }
-.transactions{
+.transactions,.LabelStructureDivision,.ThisMonthExpenseIncome{
   margin-top:10px;
 }
 .Modallabel{

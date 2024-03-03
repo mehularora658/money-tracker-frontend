@@ -43,7 +43,7 @@ function DonutChart({ Chartlabels, Chartdata, ChartColor }) {
   }, [])
   return (
     <div className='DonutChart'>
-      <canvas ref={ChartRef} style={{  height: '200px', padding: '10px' }} />
+      <canvas ref={ChartRef}  className='donutChart'/>
     </div>
   )
 }
