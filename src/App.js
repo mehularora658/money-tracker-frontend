@@ -236,11 +236,17 @@ function App() {
               </div>
               : null}
 
-
-            <button
-              className='SeeAllBtn'
-              onClick={openModal}
-            >See All ...</button>
+            {
+              transactions.length < 4 || transactions.length === 4 ?
+                null
+                :
+                <button
+                  className='SeeAllBtn'
+                  onClick={openModal}
+                >
+                  See All ...
+                </button>
+            }
           </div>
 
 
